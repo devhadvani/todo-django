@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block 'content' %}
+
+<form action="">
+    {{form}}
+    <input type="submit">
+</form>
+
+{% for i in data %}
+{{i.name}}
+
+{{i.complete}}
+
+{% endfor %}
+{% endblock 'content' %}
