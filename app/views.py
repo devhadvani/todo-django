@@ -8,7 +8,10 @@ def home(request):
     data = Todo.objects.all()
     if request.method == "GET":
         fm = TodoForm(request.GET)
-        name = request.GET["name"]
-        user = Todo(name=name)
-        user.save()
+        if fm.is_valid():
+            fm.save()
+            print("yes")
+        # name = request.GET['name']
+        # user = Todo(name=name)
+        # user.save()
     return render(request,"home.html",{"data":data,"form":fm})
