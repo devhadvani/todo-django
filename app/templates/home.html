@@ -2,16 +2,29 @@
 
 {% block 'content' %}
 
-<form action="">
+
+<form action="" method="post">
+    {% csrf_token %}
     {{form}}
     <input type="submit">
 </form>
 
+{% for message in messages %}
+<p class="{{message.tags}}">{{message}}</p>
+{%endfor%}  
+<table style="margin-top:20px">
 {% for i in data %}
-{{i.name}}
 
-{{i.complete}}
-
+<tr>
+    <td {% if i.complete %} class="done" {% endif %}>         {{i.name}}    </td>
+    {% comment %} <td {% if i.complete %} class="done" {% endif %}>              {{i.complete}}   </td> {% endcomment %}         
+<td><a href="{% url 'update' i.id %}">Update</a></td>
+    <td><a href="{% url 'delete' i.id %}">Delete</td></a>
+    <td><a href="{% url 'done' i.id %}">comp</td></a>
+</tr>
 {% endfor %}
+</table>
+
+
 
 {% endblock 'content' %}

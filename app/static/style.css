@@ -1,0 +1,21 @@
+body{
+    background-color: rgb(243, 243, 243);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.success{
+    color:white;
+    background-color: green;
+}
+
+.done{
+    text-decoration: line-through;
+}
+
+td:nth-child(2){
+    padding-left:200px;
+}
